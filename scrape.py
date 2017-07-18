@@ -17,6 +17,9 @@ def scrape(period=None):
         
     df = pd.read_excel(filename, sheetname='Sheet1')
     df = df[['Expiry', 'Previous Settlement']]
+    
+    if period == 'quarterly':
+        df['Expiry'] = df['Expiry'] - dt.timedelta(days=45)
     return df
 
 if __name__ == '__main__':

@@ -8,13 +8,9 @@ import datetime as dt
 import pandas as pd
 
 
-def scrape(period=None):
+def scrape(period=None, date=None):
     
-    if period == 'monthly':
-        filename = 'monthly_7-18-2017.xlsx'
-    if period == 'quarterly':
-        filename = 'quarterly_7-18-2017.xlsx'
-        
+    filename = period + '_' + date + '.xlsx'
     df = pd.read_excel(filename, sheetname='Sheet1')
     df = df[['Expiry', 'Previous Settlement']]
     

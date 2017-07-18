@@ -15,8 +15,8 @@ def scrape(period=None):
     if period == 'quarterly':
         filename = 'quarterly_7-18-2017.xlsx'
         
-    df = pd.read_excel(filename, sheetname='Sheet1', converters={'Expiry': str})
-#    df['Expiry'] = pd.to_datetime(df['Expiry'], format='%Y-%d-%m %H:%M:%S')
+    df = pd.read_excel(filename, sheetname='Sheet1')
+    df = df[['Expiry', 'Previous Settlement']]
     return df
 
 if __name__ == '__main__':

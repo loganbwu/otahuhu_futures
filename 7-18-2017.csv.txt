@@ -1,0 +1,10 @@
+Expiry	Bid	Ask	Open	High	Low	Last Trade	Last Trade Time	Change	Traded Volume	Previous Settlement
+Jul 17						135.00	12/07/17 13:36			151.00
+Aug 17						115.00	11/07/17 13:58			116.50
+Sep 17						85.25	12/07/17 13:32			85.250
+Oct 17						78.00	17/07/17 13:55			78.000
+Nov 17						80.25	14/07/17 13:36			83.450
+Dec 17						70.00	04/07/17 13:29			69.800
+Jan 18										80.050
+Feb 18										80.050
+Mar 18										80.050

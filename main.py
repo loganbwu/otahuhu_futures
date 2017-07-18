@@ -5,18 +5,16 @@ Created on Tue Jul 18 12:04:48 2017
 @author: LWu
 """
 
-import datetime as dt
-import dateutil as du
-
 import pandas as pd
 from scrape import scrape
+import matplotlib.pyplot as plt
 
-date_list=[dt.date.today()+ du.relativedelta.relativedelta(months = x) for x in range(24)]
-month_list=[dt.date.strftime(x,'%b %Y') for x in date_list]
 
-prices = pd.DataFrame(index=month_list)
+monthly_data = scrape('monthly')
+#quarterly_data = scrape('quarterly')
 
-today_data = scrape('today')
+#monthly_data.plot('Expiry', 'Previous Settlement')
+#quarterly_data.plot('Expiry', 'Previous Settlement')
 
-prices['today'] = today_data
-prices.plot()
+fig, ax = plt.subplots()
+ax.plot_date(monthly_data['Expiry'], monthly_data['Previous Settlement'])

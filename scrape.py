@@ -3,16 +3,21 @@
 Scrape ASX prices
 """
 
+import datetime as dt
+#import dateutil as du
 import pandas as pd
-def scrape(url=None, date=None):
+
+
+def scrape(period=None):
     
-    if not date:
-        date = '7-2018-2017'
-    
-    expiry = ['Jul 2017', 'Aug 2017', 'Sep 2017', 'Oct 2017', 'Nov 2017', 'Dec 2017',
-              'Jan 2018', 'Feb 2018', 'Mar 2018']
-    previous_settlement = [151, 116.5, 85.25, 78, 83.45, 69.8, 80.05, 80.05, 80.05]
-    
-    data = pd.DataFrame(previous_settlement, index=expiry)
-    data.columns = ['price']
-    return data
+    if period == 'monthly':
+        filename = 'monthly_7-18-2017.xlsx'
+    if period == 'quarterly':
+        filename = 'quarterly_7-18-2017.xlsx'
+        
+    df = pd.read_excel(filename, sheetname='Sheet1', converters={'Expiry': str})
+#    df['Expiry'] = pd.to_datetime(df['Expiry'], format='%Y-%d-%m %H:%M:%S')
+    return df
+
+if __name__ == '__main__':
+    raise Exception('Don\'t run this file')
